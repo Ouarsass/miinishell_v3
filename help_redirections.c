@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 22:31:32 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/02 22:44:03 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/05 22:44:12 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	redirect_with_fd(char *line, int *i)
 
 	j = i[0];
 	j--;
-	while (j != -1 && line[j] && line[j] != ' ' &&
+	while (j != -1 && line[j] && line[j] != ' ' && \
 		line[j] != '\t' && line[j] != '\n')
 		j--;
 	j++;
@@ -59,11 +59,13 @@ int	redirect_with_fd(char *line, int *i)
 		str = ft_substr(line, j, i[0] - j);
 	b = -1;
 	while (str[++b])
+	{
 		if (str[b] < 48 || str[b] > 57)
 		{
 			free(str);
 			return (-1);
 		}
+	}
 	i[0] = j;
 	j = atoi(str);
 	free(str);
@@ -78,7 +80,7 @@ int	print_p_d(char *file, int *pipe)
 	return (0);
 }
 
-int		print_n_x(char *file, int *pipe)
+int	print_n_x(char *file, int *pipe)
 {
 	ft_putstr_fd("minishell: ", pipe[1]);
 	ft_putstr_fd(file, pipe[1]);

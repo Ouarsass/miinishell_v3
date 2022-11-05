@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 22:46:02 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/02 22:19:52 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/05 23:19:35 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ int	check_count_and(char *str, int count)
 
 int	some_norme_again(char *str, int j, char c, int count)
 {
-	if ((str[j] == '\0' || search_no_espace(&str[j]) == 0) &&
-		(str[j - 1] == '<' || str[j - 1] == '>' ||
+	if ((str[j] == '\0' || search_no_espace(&str[j]) == 0) && \
+		(str[j - 1] == '<' || str[j - 1] == '>' || \
 		(str[j - 1] == '&' && (str[j - 2] == '>' || str[j - 2] == '<'))))
 		return (print_and_of_number(c, count));
 	return (1);

@@ -6,7 +6,7 @@
 #    By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/01 20:12:40 by mouarsas          #+#    #+#              #
-#    Updated: 2022/11/04 00:04:04 by mouarsas         ###   ########.fr        #
+#    Updated: 2022/11/05 20:50:42 by mouarsas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,8 @@ SRCS = 	minishell.c\
 
 
 CFLAGS := -Wall -Wextra -Werror
+LFLAGS="-L/Users/mouarsas/.brew/opt/readline/lib"
+IFLAGS="-I/Users/mouarsas/.brew/opt/readline/include"
 # LFLAGS := -L/goinfre/mouarsas/.brew/opt/readline/lib
 # IFLAGS := -I/goinfre/mouarsas/.brew/opt/readline/include
 

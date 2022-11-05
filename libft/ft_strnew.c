@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 23:20:15 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/02 21:52:03 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/05 21:29:08 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ char	*ft_strnew(size_t size)
 	size_t	j;
 
 	j = 0;
-	if (!(r = (char *)malloc(size + 1 * sizeof(*r))))
+	r = (char *)malloc(size + 1 * sizeof(*r));
+	if (!r)
 		return (NULL);
 	while (j <= size)
 		r[j++] = '\0';

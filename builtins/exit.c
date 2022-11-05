@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 23:34:02 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/03 20:39:16 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/05 21:05:43 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,8 @@ int	exit_check(char *s)
 	i = -1;
 	while (s[++i])
 		if (!(s[i] >= 48 && s[i] <= 57))
-			free_and_exit(255);
+			exit(255);
 	return (ft_atoi(s));
-}
-
-void	free_and_exit(int status)
-{
-	//rl_clear_history();
-	exit(status);
 }
 
 t_list	*ft_my_exit(char **av, t_list *list, t_pi *pi, t_norme2 *norme)

@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 22:39:58 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/01 23:31:29 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/05 22:45:55 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*replace_home(char *line, t_env_list *env)
 			while (line[i] && line[i] != c)
 				i++;
 		}
-		else if (line[i] == '~' && (i == 0 || line[i - 1] == ' ' ||
+		else if (line[i] == '~' && (i == 0 || line[i - 1] == ' ' || \
 			line[i - 1] == '\t'))
 			i = help_replace_home2(&line, i, env);
 		else
@@ -36,7 +36,7 @@ char	*replace_home(char *line, t_env_list *env)
 	return (line);
 }
 
-int		help_replace_home2(char **line, int i, t_env_list *env)
+int	help_replace_home2(char **line, int i, t_env_list *env)
 {
 	char	*str;
 	int		a;
@@ -57,7 +57,7 @@ int		help_replace_home2(char **line, int i, t_env_list *env)
 	return (i);
 }
 
-int		help_replace_home(char **line, int i)
+int	help_replace_home(char **line, int i)
 {
 	char	**command;
 	int		a;

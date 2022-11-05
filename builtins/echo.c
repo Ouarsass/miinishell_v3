@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 23:33:36 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/02 22:01:26 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/05 23:14:34 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,5 @@ int	ft_echo(char **av, t_pi pi)
 	}
 	if (sig != -2)
 		ft_putstr_fd("\n", pi.pipe[1][1]);
-	g_variable.status = 0;
 	return (1);
 }

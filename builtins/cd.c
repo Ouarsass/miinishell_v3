@@ -54,11 +54,18 @@ char	*get_value_env(char *str)
 
 char	*env_value(char *s, t_list *list)
 {
+	char	*env;
+
 	list->first = list;
 	while (list->first)
 	{
-		if (ft_strcmp(s, get_key_env(list->first->str)) == 0)
+		env = get_key_env(list->first->str);
+		if (ft_strcmp(s, env) == 0)
+		{
+			free(env);
 			return (get_value_env(list->first->str));
+		}
+		free(env);
 		list->first = list->first->next;
 	}
 	return (NULL);
@@ -74,24 +81,7 @@ t_list	*change_dir(char **av, t_cd ci, t_list *list, t_pi pi)
 		ci.st[0] = 0;
 	}
 	else
-	{
 		change_dir_norm(ci, list, pi);
-		// tab = (char **)malloc(sizeof(char *) * 3);
-		// current = ft_strjoin("OLDPWD=", ci.old_cur);
-		// tab[0] = "export";
-		// tab[1] = current;
-		// tab[2] = NULL;
-		// list = ft_export(tab, list, pi);
-		// free(current);
-		// getcwd(path, 255);
-		// current = ft_strjoin("PWD=", path);
-		// tab[0] = "export";
-		// tab[1] = current;
-		// tab[2] = NULL;
-		// list = ft_export(tab, list, pi);
-		// free(current);
-		// free(tab);
-	}
 	return (list);
 }
 
@@ -112,7 +102,6 @@ t_list	*ft_cd(char **av, t_list *list, t_pi pi, int *st)
 		{
 			ft_putstr_fd("minishell: cd: HOME not set", pi.pipe[2][1]);
 			st[0] = 0;
-			free(home);
 			free(old_cur);
 			return (list);
 		}
@@ -123,7 +112,7 @@ t_list	*ft_cd(char **av, t_list *list, t_pi pi, int *st)
 	}
 	ci.i = chdir((const char *)av[1]);
 	ci.old_cur = old_cur;
-
 	list = change_dir(av, ci, list, pi);
+	free(old_cur);
 	return (list);
 }

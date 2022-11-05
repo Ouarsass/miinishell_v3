@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 22:58:23 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/03 20:27:32 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/05 22:57:56 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ t_list	*ft_trait1(t_norme2 *norme, t_list *list, t_pi *pi,
 	if (ft_strchr(norme->str, '>') != NULL || \
 		ft_strchr(norme->str, '<') != NULL)
 		h = redirect(&pi[0], &(norme->str), &(norme->status));
-	if ((newargv = mini_filter_h(&(norme->str), my_magic(list))) != NULL)
+	newargv = mini_filter_h(&(norme->str), my_magic(list));
+	if (newargv != NULL)
 	{
 		status.pi = pi[0];
 		status.status = norme->status;
@@ -60,9 +61,9 @@ t_list	*ft_trait1(t_norme2 *norme, t_list *list, t_pi *pi,
 	return (list);
 }
 
-int		trait_the_pi(char *str, t_pi *pi, int p0)
+int	trait_the_pi(char *str, t_pi *pi, int p0)
 {
-	int p[2];
+	int	p[2];
 
 	if (str != NULL)
 		pipe(p);
@@ -77,9 +78,9 @@ int		trait_the_pi(char *str, t_pi *pi, int p0)
 	return (p[0]);
 }
 
-int		error_type_three(char *file, int *error)
+int	error_type_three(char *file, int *error)
 {
-	struct stat l;
+	struct stat	l;
 
 	if (lstat(file, &l) == -1)
 		return (print_n_x(file, error));
@@ -90,7 +91,7 @@ int		error_type_three(char *file, int *error)
 
 void	free_2d(char **str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])

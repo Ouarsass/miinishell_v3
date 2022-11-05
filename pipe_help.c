@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 22:35:28 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/02 22:15:49 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/05 23:24:20 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,7 @@ void	help_to_finish_the_pipe(char **line)
 		new = readline("> ");
 	}
 	if (!new && i)
-	{
-		// save_historique(line[0], 1);
 		ft_memdel(&line[0]);
-	}
 	str = line[0];
 	line[0] = ft_strjoin(line[0], new);
 	free(new);
@@ -74,7 +71,8 @@ int	check_redirections(char **str)
 	{
 		if (check_one_by_one(str[i]) == 0 || check_if_h_file(str[i]) == 0)
 		{
-			ft_putendl("minishell:syntax error near unexpected token `newline'");
+			ft_putendl("minishell:syntax error near \
+				unexpected token `newline'");
 			return (0);
 		}
 		i++;

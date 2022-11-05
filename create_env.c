@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 22:19:39 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/02 22:41:35 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/05 22:40:09 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	*get_name(char *environ)
 	return (str);
 }
 
-char		*get_environ(char *environ)
+char	*get_environ(char *environ)
 {
 	char	*str;
 	int		i;

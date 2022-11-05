@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 22:01:29 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/03 20:29:41 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/05 23:17:46 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,14 @@ t_list	*ft_myshell(char **argv, int com, t_list *list, t_status *status)
 		len++;
 	if (com == 1)
 		ft_echo(argv, status->pi);
-		// mini_echo(argv, status->pi);
 	else if (com == 2)
 		ft_cd(argv, list, status->pi, &st);
-		// list = mini_cd(argv, list, status->pi, &st);
-	// else if (com == 3 && status->pi.new == NULL)
-	// 	ft_my_exit(argv, list, status->pi, &st);
-		// list = my_setenv(argv, list, status->pi);
 	else if (com == 4 && status->pi.new == NULL)
 		ft_unset(argv, list);
-		// list = my_unsetenv(argv, list, len);
 	else if (com == 5)
 		ft_export(argv, list, status->pi);
-		// affichage_myenv(list, status->pi);
 	else if (com == 6)
 		ft_env(list, status->pi);
-		// mini_type(argv, status->pi, list, &st);
 	else if (com == 7)
 		ft_pwd(status->pi);
 	status->status = st;

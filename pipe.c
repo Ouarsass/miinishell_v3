@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 22:26:50 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/02 22:16:45 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/05 23:23:08 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,14 @@ int	error_pipe(char **str, char *line)
 	i = 0;
 	while (str[i])
 	{
-		if (search_no_espace(str[i]) == 0 && (str[i + 1] != NULL
-					|| (str[i + 1] == NULL && leno_pipe(line, '|') > i)))
+		if (search_no_espace(str[i]) == 0 && (str[i + 1] != NULL \
+			|| (str[i + 1] == NULL && leno_pipe(line, '|') > i)))
 		{
 			ft_putstr("minishell: parse error near `|'\n");
 			return (0);
 		}
-		else if (str[i + 1] == NULL && (search_no_espace(str[i]) == 0
-					|| leno_pipe(line, '|') > i))
+		else if (str[i + 1] == NULL && (search_no_espace(str[i]) == 0 \
+			|| leno_pipe(line, '|') > i))
 			return (2);
 		i++;
 	}

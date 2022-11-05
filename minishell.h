@@ -6,28 +6,13 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 20:12:12 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/03 20:29:05 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/05 23:16:35 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 # include "libft/libft.h"
-int isexecuting;
-// # include <sys/types.h>
-// # include <sys/stat.h>
-// # include <dirent.h>
-// # include <sys/types.h>
-// # include <unistd.h>
-// # include <time.h>
-// # include <pwd.h>
-// # include <grp.h>
-// # include <time.h>
-// # include "readline/readline.h"
-// # include "readline/history.h"
-// # include <fcntl.h>
-// # include <sys/wait.h>
-// # include <signal.h>
 # include <fcntl.h>
 # include <signal.h>
 # include <unistd.h>
@@ -39,19 +24,21 @@ int isexecuting;
 # include <curses.h>
 # include <limits.h>
 # include <errno.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <unistd.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <unistd.h>
 # define BUFF_SIZE 1024
 
-typedef struct	s_list
+int	g_isexecuting;
+
+typedef struct s_list
 {
 	char			*str;
 	struct s_list	*first;
 	struct s_list	*next;
 }				t_list;
 
-typedef struct	s_my
+typedef struct s_my
 {
 	char	c;
 	int		i;
@@ -68,7 +55,7 @@ typedef struct	s_my
 	char	*new;
 }				t_my;
 
-typedef	struct	s_pi
+typedef struct s_pi
 {
 	char	*new;
 	int		p;
@@ -77,18 +64,18 @@ typedef	struct	s_pi
 
 typedef struct s_cd
 {
-	int i;
-	char *old_cur;
-	int *st;
+	int		i;
+	char	*old_cur;
+	int		*st;
 }				t_cd;
 
-typedef struct	s_norme
+typedef struct s_norme
 {
 	char	**env;
 	t_pi	pi;
 }				t_norme;
 
-typedef struct	s_norme2
+typedef struct s_norme2
 {
 	char	*str;
 	char	**tab;
@@ -97,7 +84,7 @@ typedef struct	s_norme2
 	char	**oror;
 }				t_norme2;
 
-typedef struct	s_norme3
+typedef struct s_norme3
 {
 	char	**str;
 	int		p0;
@@ -107,20 +94,20 @@ typedef struct	s_norme3
 	int		status2;
 }				t_norme3;
 
-typedef struct	s_env_list
+typedef struct s_env_list
 {
 	char				*name;
 	char				*environ;
 	struct s_env_list	*next;
 }				t_env_list;
 
-typedef struct	s_status
+typedef struct s_status
 {
 	t_pi	pi;
 	int		status;
 }				t_status;
 
-typedef struct	s_some_norme
+typedef struct s_some_norme
 {
 	char	c;
 	char	count;
@@ -133,8 +120,6 @@ typedef struct s_global
 	t_list	*env;
 	int		status;
 }				t_global;
-
-t_global	g_variable;
 
 /////////////////////////////////////////////////
 
@@ -153,23 +138,22 @@ char			*get_value_env(char *str);
 t_list			*ft_unset(char **av, t_list *list);
 t_list			*get_node_env(char *s, t_list *list);
 t_list			*ft_export(char **av, t_list *list, t_pi pi);
-t_list 			*cd_norm(t_list *list, t_pi pi, int *st);
+t_list			*cd_norm(t_list *list, t_pi pi, int *st);
 char			*env_value(char *s, t_list *list);
 t_list			*change_dir(char **av, t_cd ci, t_list *list, t_pi pi);
 void			change_dir_norm(t_cd ci, t_list *list, t_pi pi);
-
 
 t_list			*and_and(t_list *list, char *str, t_norme3 norme);
 int				print_cd_error(char *argv, int **pipe, int *status, char *new);
 void			mini_norme_mini_cd(int **pipe, int *status);
 void			anathor_help_for_mini1(char *str, t_norme3 *norme3,
-				t_norme2 *norme);
+					t_norme2 *norme);
 void			another_mini_help_for_mini2(t_status *status, char *commande);
 int				check_if_and_and(char **str, int i);
 int				check_count_and(char *str, int countand);
 int				print_number_of_and(char s, int count);
 int				print_and_of_number(char s, int count);
-int				print_fu_redirect_error();
+int				print_fu_redirect_error(void);
 int				some_name(int *i, int *j, char *str, char c);
 int				some_norme_again(char *str, int j, char c, int count);
 int				some_name_norme(t_some_norme norme, int *j, int *i);
@@ -202,7 +186,6 @@ void			help_split_and_and(char *line, char **command, int i, char s);
 int				count_and_and(char *line, char s);
 char			*check(char *str);
 void			print_type(mode_t st_mode, char *perm);
-// void			change_lien(char **new, char *str);
 int				trait_the_pi(char *str, t_pi *pi, int p0);
 void			close_pi(t_pi *pi);
 void			wait_null(int p2, int i, int *status);
@@ -237,7 +220,7 @@ int				n_str(char *path);
 void			remplir(char **str, char *path);
 t_list			*mini_cd(char **argv, t_list *list, t_pi pi, int *status);
 t_list			*ft_trait(char *commande, t_list *list,
-				char **argv, t_status *status);
+					char **argv, t_status *status);
 char			**pipe_line(char *line);
 int				error_pipe(char **str, char *line);
 char			**ft_strsplito(char *s);
@@ -267,7 +250,7 @@ int				trait_the_type(char *file, int out, int type, int ***pipe);
 int				check_number_or_word(char *file);
 int				trait_the_and(char *file, int out, int type, int ***pipe);
 t_list			*ft_trait1(t_norme2 *norme, t_list *list, t_pi *pi,
-				char **tab);
+					char **tab);
 void			save_historique(char *line, int mode);
 int				tarit_my_setnv(char **argv, t_list *list, t_pi pi);
 int				mylen2(char *str, char *argv);
@@ -280,7 +263,7 @@ int				ft_number_words(char *cont);
 char			**ft_deux(char *cont, char **argv);
 void			ft_fresh(char **tab);
 int				search_commande(t_list *list, char *commande,
-				char **argv, t_pi pi);
+					char **argv, t_pi pi);
 void			free_mylist(t_list *list);
 void			affichage_myenv(t_list *list, t_pi pi);
 t_list			*ft_exit(t_list *list, char **argv, t_pi *pi, t_norme2 *norme);
@@ -292,7 +275,7 @@ t_list			*stock_list(char **env);
 t_list			*my_setenv(char **argv, t_list *list, t_pi pi);
 t_list			*my_unsetenv(char **argv, t_list *list, int len);
 t_list			*ft_myshell(char **argv, int com, t_list *list,
-				t_status *status);
+					t_status *status);
 t_env_list		*create_env(char **environ);
 t_env_list		*create_next(char *environ);
 

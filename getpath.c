@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 22:24:00 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/02 22:41:57 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/05 22:42:45 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ int	n_str(char *path)
 		perror("Error: ");
 		exit(1);
 	}
-	while ((dirent = readdir(dir)))
+	dirent = readdir(dir);
+	while (dirent)
 	{
 		if (dirent->d_name[0] != '.')
 			i++;
@@ -59,7 +60,8 @@ void	remplir(char **str, char *path)
 		write(1, "Error! Unable to open directory.", 32);
 		exit(1);
 	}
-	while ((dirent = readdir(dir)))
+	dirent = readdir(dir);
+	while (dirent)
 	{
 		if (dirent->d_name[0] != '.')
 		{

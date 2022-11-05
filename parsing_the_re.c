@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 22:50:29 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/02 22:17:49 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/05 23:23:32 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ int	type_one(char *file, int ***pipe, int out)
 
 	if (help_type_one(file, pipe[0][2]) == 0)
 		return (0);
-	if ((b = open(file, O_WRONLY | O_TRUNC)) == -1)
+	b = open(file, O_WRONLY | O_TRUNC);
+	if (b == -1)
 		return (print_p_d(file, pipe[0][2]));
 	if (out == -1 || out == 1)
 	{
@@ -68,10 +69,11 @@ int	type_one(char *file, int ***pipe, int out)
 
 int	type_two(char *file, int ***pipe, int out)
 {
-	int b;
+	int	b;
 
 	close(open(file, O_CREAT, 0644));
-	if ((b = open(file, O_WRONLY | O_APPEND)) == -1)
+	b = open(file, O_WRONLY | O_APPEND);
+	if (b == -1)
 		return (print_p_d(file, pipe[0][2]));
 	if (out == -1 || out == 1)
 	{
@@ -100,7 +102,8 @@ int	type_three(char *file, int ***pipe, int out)
 
 	if (error_type_three(file, pipe[0][2]) == 0)
 		return (0);
-	if ((b = open(file, O_RDONLY)) == -1)
+	b = open(file, O_RDONLY);
+	if (b == -1)
 		return (print_p_d(file, pipe[0][2]));
 	if (out == -1 || out == 0)
 	{

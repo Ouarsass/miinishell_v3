@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 22:18:14 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/02 22:40:45 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/05 22:39:37 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ t_list	*or_or(t_list *list, char *str, t_norme3 *norme)
 		norme->oror = new;
 		if (check_line(new[i]) != 0)
 		{
-			if ((list = ft_trait0(list, new[i], &norme[0], -1)) == NULL)
+			list = ft_trait0(list, new[i], &norme[0], -1);
+			if (list == NULL)
 				return (NULL);
 			if (norme->status != 0)
 			{
@@ -123,7 +124,8 @@ t_list	*and_and(t_list *list, char *str, t_norme3 norme)
 		norme.status2 = 1;
 		if (check_line(new[i]) != 0)
 		{
-			if ((list = or_or(list, new[i], &norme)) == NULL)
+			list = or_or(list, new[i], &norme);
+			if (list == NULL)
 				return (NULL);
 			if (norme.status2 == 0)
 			{

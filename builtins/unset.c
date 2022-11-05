@@ -12,6 +12,30 @@
 
 #include "../minishell.h"
 
+t_list *help_ft_unset_env(t_list *list, char *str) 
+{
+	t_list	*tmp;
+	char	*env;
+
+	list->first = list;
+	while (list->first->next)
+	{
+		env = get_key_env(list->first->next->str);
+		if (ft_strcmp(str, env) == 0)
+		{
+			tmp = list->first->next;
+			list->first->next = tmp->next;
+			free(tmp->str);
+			free(tmp);
+			free(env);
+			return (list);
+		}
+		free(env);
+		list->first = list->first->next;
+	}
+	return (list);
+}
+
 t_list	*ft_unset_env(t_list *list, char *str)
 {
 	t_list	*tmp;
@@ -27,21 +51,8 @@ t_list	*ft_unset_env(t_list *list, char *str)
 		free(env);
 		return(list);
 	}
-	while (list->first->next)
-	{
-		env = get_key_env(list->first->next->str);
-		if (ft_strcmp(str, env) == 0)
-		{
-			tmp = list->first->next;
-			list->first->next = tmp->next;
-			free(tmp->str);
-			free(tmp);
-			free(env);
-			return (list);
-		}
-		list->first = list->first->next;
-	}
-	return (list);
+	free(env);
+	return (help_ft_unset_env(list, str));
 }
 
 t_list	*ft_unset(char **av, t_list *list)

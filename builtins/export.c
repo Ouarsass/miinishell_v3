@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 23:34:11 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/02 21:59:09 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/05 21:19:59 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,22 @@ char	**spliting_export(char *tab)
 
 void	affichage_exports(t_list *list, t_pi pi)
 {
+	char *env;
+	
 	list->first = list;
 	while (list->first)
 	{
 		ft_putstr_fd("declare -x ", pi.pipe[1][1]);
-		ft_putstr_fd(get_key_env(list->first->str), pi.pipe[1][1]);
+		env = get_key_env(list->first->str);
+		ft_putstr_fd(env, pi.pipe[1][1]);
 		ft_putstr_fd("=\"", pi.pipe[1][1]);
-		ft_putstr_fd(get_value_env(list->first->str), pi.pipe[1][1]);
+		free(env);
+		env = get_value_env(list->first->str);
+		ft_putstr_fd(env, pi.pipe[1][1]);
 		ft_putstr_fd("\"\n", pi.pipe[1][1]);
+		free(env);
 		list->first = list->first->next;
 	}
-	g_variable.status = 0;
 }
 
 t_list	*ft_add_to_env(t_list *list, char *str, char *spl)
@@ -63,12 +68,19 @@ t_list	*ft_add_to_env(t_list *list, char *str, char *spl)
 		{
 			free(list->first->str);
 			list->first->str = ft_strdup(str);
+			free_2d(split);
 			return (list);
 		}
 		if (list->first->next == NULL)
+		{
+			free_2d(split);
 			break;
+		}
 		else
+		{
 			list->first = list->first->next;
+			free_2d(split);
+		}
 	}
 	list->first->next = new_list(str);
 	return (list);
@@ -92,7 +104,10 @@ t_list	*ft_export(char **av, t_list *list, t_pi pi)
 		{
 			split = spliting_export(av[i]);
 			if (split)
+			{
 				list = ft_add_to_env(list, av[i], split[0]);
+				free_2d(split);
+			}
 		}
 	}
 	return (list);

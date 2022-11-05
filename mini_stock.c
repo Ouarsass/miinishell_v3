@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 00:42:55 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/02 22:46:53 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/05 22:59:14 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	ft_number_words(char *cnt)
 			i = quote2eme(i, cnt, ((int)cnt[i]));
 		if (past + 1 == i && cnt[i + 1] == '\0')
 			nbr++;
-		if ((cnt[i + 1] == ' ' || cnt[i + 1] == '\t' || cnt[i + 1] == '\0')
+		if ((cnt[i + 1] == ' ' || cnt[i + 1] == '\t' || cnt[i + 1] == '\0') \
 				&& past != i - 1)
 		{
 			nbr++;

@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 01:13:58 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/02 22:36:39 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/05 22:58:46 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ char	*ft_filter_quote(char *cont)
 		if (cont[len] == 34 || cont[len] == 39)
 		{
 			c = ((int)cont[len]);
-			if ((resul = ft_filter_2eme(len, cont, c)) == 0)
+			resul = ft_filter_2eme(len, cont, c);
+			if (resul == 0)
 				cont = read_quote(cont, c);
 			if (!cont)
 				return (NULL);

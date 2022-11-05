@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 21:59:14 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/03 20:26:08 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/05 22:53:43 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,12 @@ void	ft_print(char **str)
 
 int	ok_x_pathv2(t_list *list, DIR *dir, char **env, t_norme norme)
 {
-	int pid;
+	int	pid;
 
 	pid = 0;
-	if (access(norme.env[0], X_OK) == 0 &&
-		(dir = opendir(norme.env[0])) == NULL)
+	dir = opendir(norme.env[0]);
+	if (access(norme.env[0], X_OK) == 0 && \
+		dir == NULL)
 	{
 		env = my_magic(list);
 		pid = fork();
@@ -105,7 +106,7 @@ t_list	*ft_trait(char *commande, t_list *list, char **argv,
 		list = ft_myshell(argv, 6, list, &status[0]);
 	else if (!ft_strcmp(commande, "pwd"))
 		list = ft_myshell(argv, 7, list, &status[0]);
-	else if (commande[0] &&
+	else if (commande[0] && \
 		search_commande(list, commande, argv, status->pi) == 0)
 	{
 		if (ft_strchr(argv[0], '/'))

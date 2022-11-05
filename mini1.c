@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 21:57:08 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/01 23:13:24 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/05 22:48:45 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ t_list	*ft_trait0v2(t_list *list, char *line)
 		norme.p0 = 0;
 		if (check_line(new[i]) != 0)
 		{
-			if ((list = and_and(list, new[i], norme)) == NULL)
+			list = and_and(list, new[i], norme);
+			if (list == NULL)
 				return (NULL);
 		}
 		i++;
@@ -42,10 +43,12 @@ t_list	*ft_trait0(t_list *list, char *line, t_norme3 *norme3, int i)
 	t_pi		*pi;
 	t_norme2	norme;
 
-	if ((norme3->status = complete_the_pipe(&line)) != 1)
+	norme3->status = complete_the_pipe(&line);
+	if (norme3->status != 1)
 		return (list);
 	str = split_command(line, '|');
-	if ((norme3->status = check_redirections(str)) == 0)
+	norme3->status = check_redirections(str);
+	if (norme3->status == 0)
 		return (list);
 	while (str[++i])
 	{
@@ -57,7 +60,8 @@ t_list	*ft_trait0(t_list *list, char *line, t_norme3 *norme3, int i)
 		if (str[i + 1])
 			pi->new = ft_strdup(str[i + 1]);
 		anathor_help_for_mini1(str[i], norme3, &norme);
-		if ((list = ft_trait1(&norme, list, pi, str)) == NULL)
+		list = ft_trait1(&norme, list, pi, str);
+		if (list == NULL)
 			return (NULL);
 	}
 	free_of_trait0(pi, i, str, &norme.status);
@@ -67,7 +71,7 @@ t_list	*ft_trait0(t_list *list, char *line, t_norme3 *norme3, int i)
 
 void	wait_null(int p2, int i, int *status)
 {
-	int j;
+	int	j;
 	int	n;
 
 	j = 0;
@@ -85,9 +89,9 @@ void	wait_null(int p2, int i, int *status)
 		status[0] = 0;
 }
 
-int		**alloc_for_int(void)
+int	**alloc_for_int(void)
 {
-	int i;
+	int	i;
 	int	**pipe;
 
 	i = 0;
