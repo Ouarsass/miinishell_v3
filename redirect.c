@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 22:49:07 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/02 22:12:14 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/06 20:48:46 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,8 @@ int	help_to_parse(char **line, int j, int ***pipe, int *status)
 	if (type == 4 && check_if_is_num(file) == 1 && \
 		(line[0][a] == '<' || line[0][a] == '>'))
 		return (print_error_num(file, pipe[0][2], &status[0]));
-	if ((status[0] = parse_to_two(file, out, type, &pipe[0])) == 0)
+	status[0] = parse_to_two(file, out, type, &pipe[0]);
+	if (status[0] == 0)
 		return (0);
 	join_with_anything(&line[0], a, j);
 	free(file);

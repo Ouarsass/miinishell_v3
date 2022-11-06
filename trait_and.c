@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 22:37:31 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/02 22:06:56 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/06 20:37:27 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	if_three(char *file2, int out, int type, int ***pipe)
 	}
 	else if (type == 2 || type == 4)
 	{
-		ft_putendl_fd("minishell: syntax error near unexpected token '&'",
+		ft_putendl_fd("minishell: syntax error near unexpected token '&'", \
 				pipe[0][2][1]);
 		return (0);
 	}
@@ -40,7 +40,7 @@ int	if_two(int out, int type, int ***pipe)
 {
 	if (type == 2 || type == 4)
 	{
-		ft_putendl_fd("minishell: syntax error near unexpected token '&'",
+		ft_putendl_fd("minishell: syntax error near unexpected token '&'", \
 				pipe[0][2][1]);
 		return (0);
 	}
@@ -92,7 +92,7 @@ int	print_bad_file(char *file2, int ***pipe)
 
 int	print_syntax_error(int ***pipe)
 {
-	ft_putendl_fd("minishell: syntax error near unexpected token '&'",
+	ft_putendl_fd("minishell: syntax error near unexpected token '&'", \
 			pipe[0][2][1]);
 	return (0);
 }

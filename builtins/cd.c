@@ -6,25 +6,11 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 23:33:27 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/03 20:50:38 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/06 20:34:42 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-
-char	*get_key_env(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == '=')
-			return (ft_substr(str, 0, i));
-		i++;
-	}
-	return (NULL);
-}
 
 t_list	*get_node_env(char *s, t_list *list)
 {
@@ -106,9 +92,9 @@ t_list	*ft_cd(char **av, t_list *list, t_pi pi, int *st)
 			return (list);
 		}
 		free(home);
-		list =  cd_norm(list, pi, st);
+		list = cd_norm(list, pi, st);
 		free(old_cur);
-		return list;
+		return (list);
 	}
 	ci.i = chdir((const char *)av[1]);
 	ci.old_cur = old_cur;

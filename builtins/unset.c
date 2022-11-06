@@ -6,13 +6,13 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 23:34:34 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/03 22:08:25 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/06 20:22:51 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-t_list *help_ft_unset_env(t_list *list, char *str) 
+t_list	*help_ft_unset_env(t_list *list, char *str)
 {
 	t_list	*tmp;
 	char	*env;
@@ -49,7 +49,7 @@ t_list	*ft_unset_env(t_list *list, char *str)
 		list = tmp->next;
 		free(tmp);
 		free(env);
-		return(list);
+		return (list);
 	}
 	free(env);
 	return (help_ft_unset_env(list, str));
@@ -66,4 +66,3 @@ t_list	*ft_unset(char **av, t_list *list)
 		list = ft_unset_env(list, av[i]);
 	return (list);
 }
-

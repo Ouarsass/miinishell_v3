@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 20:12:12 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/05 23:16:35 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/06 20:20:44 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,8 +144,6 @@ t_list			*change_dir(char **av, t_cd ci, t_list *list, t_pi pi);
 void			change_dir_norm(t_cd ci, t_list *list, t_pi pi);
 
 t_list			*and_and(t_list *list, char *str, t_norme3 norme);
-int				print_cd_error(char *argv, int **pipe, int *status, char *new);
-void			mini_norme_mini_cd(int **pipe, int *status);
 void			anathor_help_for_mini1(char *str, t_norme3 *norme3,
 					t_norme2 *norme);
 void			another_mini_help_for_mini2(t_status *status, char *commande);
@@ -157,8 +155,6 @@ int				print_fu_redirect_error(void);
 int				some_name(int *i, int *j, char *str, char c);
 int				some_norme_again(char *str, int j, char c, int count);
 int				some_name_norme(t_some_norme norme, int *j, int *i);
-t_list			*add_pwd(t_list *list, t_pi pi, char *str);
-void			help_saloupi_to_treat_cd2(t_list *list, int error);
 char			*replace_home(char *line, t_env_list *env);
 int				help_replace_home2(char **line, int i, t_env_list *env);
 int				help_replace_home(char **line, int i);
@@ -174,18 +170,12 @@ void			free_of_trait0(t_pi *pi, int i, char **str, int *status);
 void			free_of_trait0v2(t_pi *pi, int i);
 int				check_if_is_num(char *file);
 int				print_error_num(char *file, int *error, int *staus);
-void			mini_type(char **argv, t_pi pi, t_list *list, int *status);
-int				mini_type1(char *str, t_pi pi);
-int				mini_type1v2(char *str, t_pi pi);
-int				mini_type2(char *str, t_pi pi);
-int				mini_type3(char *str, t_list *list, t_pi pi, int *status);
 char			*serach_env2(t_list *list);
 t_list			*or_or(t_list *list, char *str, t_norme3	*norme);
 char			**split_and_and(char *line, char c);
 void			help_split_and_and(char *line, char **command, int i, char s);
 int				count_and_and(char *line, char s);
 char			*check(char *str);
-void			print_type(mode_t st_mode, char *perm);
 int				trait_the_pi(char *str, t_pi *pi, int p0);
 void			close_pi(t_pi *pi);
 void			wait_null(int p2, int i, int *status);
@@ -218,7 +208,6 @@ int				jump_quote(char *s, int end);
 char			**ls(char *path);
 int				n_str(char *path);
 void			remplir(char **str, char *path);
-t_list			*mini_cd(char **argv, t_list *list, t_pi pi, int *status);
 t_list			*ft_trait(char *commande, t_list *list,
 					char **argv, t_status *status);
 char			**pipe_line(char *line);
@@ -251,14 +240,10 @@ int				check_number_or_word(char *file);
 int				trait_the_and(char *file, int out, int type, int ***pipe);
 t_list			*ft_trait1(t_norme2 *norme, t_list *list, t_pi *pi,
 					char **tab);
-void			save_historique(char *line, int mode);
-int				tarit_my_setnv(char **argv, t_list *list, t_pi pi);
 int				mylen2(char *str, char *argv);
 int				mylen(char *str);
 char			**my_magic(t_list *list);
-void			mini_echo(char **argv, t_pi pi);
 char			*ft_filter_quote(char *cont);
-char			**ft_split_whitespaces(char *str);
 int				ft_number_words(char *cont);
 char			**ft_deux(char *cont, char **argv);
 void			ft_fresh(char **tab);
@@ -266,14 +251,9 @@ int				search_commande(t_list *list, char *commande,
 					char **argv, t_pi pi);
 void			free_mylist(t_list *list);
 void			affichage_myenv(t_list *list, t_pi pi);
-t_list			*ft_exit(t_list *list, char **argv, t_pi *pi, t_norme2 *norme);
 t_list			*ft_trait0(t_list *list, char *line, t_norme3 *norme3, int i);
-t_list			*old_pwd(t_list *list);
-t_list			*mini_cd2(t_list *list, t_pi pi, int *status);
 t_list			*new_list(char *tmp);
 t_list			*stock_list(char **env);
-t_list			*my_setenv(char **argv, t_list *list, t_pi pi);
-t_list			*my_unsetenv(char **argv, t_list *list, int len);
 t_list			*ft_myshell(char **argv, int com, t_list *list,
 					t_status *status);
 t_env_list		*create_env(char **environ);

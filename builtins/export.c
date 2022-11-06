@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 23:34:11 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/05 21:19:59 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/06 20:24:19 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ char	**spliting_export(char *tab)
 
 void	affichage_exports(t_list *list, t_pi pi)
 {
-	char *env;
-	
+	char	*env;
+
 	list->first = list;
 	while (list->first)
 	{
@@ -74,7 +74,7 @@ t_list	*ft_add_to_env(t_list *list, char *str, char *spl)
 		if (list->first->next == NULL)
 		{
 			free_2d(split);
-			break;
+			break ;
 		}
 		else
 		{
@@ -88,8 +88,8 @@ t_list	*ft_add_to_env(t_list *list, char *str, char *spl)
 
 t_list	*ft_export(char **av, t_list *list, t_pi pi)
 {
-	int	i;
-	char **split;
+	int		i;
+	char	**split;
 
 	i = 0;
 	list->first = list;
@@ -113,7 +113,7 @@ t_list	*ft_export(char **av, t_list *list, t_pi pi)
 	return (list);
 }
 
-t_list		*new_list(char *tmp)
+t_list	*new_list(char *tmp)
 {
 	t_list	*listnew;
 

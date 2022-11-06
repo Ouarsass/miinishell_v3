@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 22:22:29 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/02 22:08:59 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/06 20:39:00 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	leno(char *s)
 		if (s[start] == '\0')
 			break ;
 		end = start;
-		while ((s[end] != ' ' && s[end] != '\0' && s[start] != '\t') ||
+		while ((s[end] != ' ' && s[end] != '\0' && s[start] != '\t') || \
 			(s[end] == ' ' && s[end - 1] == 92))
 			end = jump_quote(s, end);
 		start = end;
@@ -53,7 +53,7 @@ char	**ft_strsplito(char *s)
 		while (s[start] != '\0' && (s[start] == ' ' || s[start] == '\t'))
 			start++;
 		end = start;
-		while ((s[end] != ' ' && s[end] != '\0' && s[start] != '\t') ||
+		while ((s[end] != ' ' && s[end] != '\0' && s[start] != '\t') || \
 			(s[end] == ' ' && s[end - 1] == 92))
 			end = jump_quote(s, end);
 		str[i] = ft_substr(s, start, (end - start));

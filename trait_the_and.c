@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 22:55:12 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/02 22:06:21 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/06 20:36:18 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	free_my_pi(t_pi *pi)
 
 int	help_to_take_file(int j, char **file)
 {
-	int i;
+	int	i;
 
 	i = j + 1;
 	while (file[0][i] && (file[0][i] == ' ' || file[0][i] == '\t'

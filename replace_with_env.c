@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 22:52:31 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/02 22:10:38 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/06 20:40:03 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*replace_with_env(char *line, t_env_list *env, int b)
 	b = 0;
 	while (line[i])
 	{
-		if (line[i] == '$' && (i == 0 || (line[i - 1] != 92 &&
+		if (line[i] == '$' && (i == 0 || (line[i - 1] != 92 && \
 			line[i - 1] != 39)))
 		{
 			a = i + 1;

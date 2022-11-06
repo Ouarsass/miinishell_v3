@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 00:49:24 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/02 22:08:06 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/06 20:38:21 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	*join_path(char *path1, char *path2)
 
 int	ft_joinandsearch(char *path, char *commande, t_norme norme, t_list *l)
 {
-	struct stat sb;
+	struct stat	sb;
 	char		*newpath;
 	char		**env;
 	int			pid;
@@ -72,7 +72,7 @@ int	ft_joinandsearch(char *path, char *commande, t_norme norme, t_list *l)
 	return (0);
 }
 
-int		search_commande(t_list *list, char *commande, char **argv, t_pi pi)
+int	search_commande(t_list *list, char *commande, char **argv, t_pi pi)
 {
 	char	**path;
 	int		len;
