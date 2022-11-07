@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 23:34:11 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/06 20:24:19 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/07 19:49:39 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,8 @@ void	affichage_exports(t_list *list, t_pi pi)
 	}
 }
 
-t_list	*ft_add_to_env(t_list *list, char *str, char *spl)
+t_list	*ft_add_to_env(t_list *list, char *str, char *spl, char **split)
 {
-	char	**split;
-
 	list->first = list;
 	while (list->first)
 	{
@@ -105,7 +103,7 @@ t_list	*ft_export(char **av, t_list *list, t_pi pi)
 			split = spliting_export(av[i]);
 			if (split)
 			{
-				list = ft_add_to_env(list, av[i], split[0]);
+				list = ft_add_to_env(list, av[i], split[0], NULL);
 				free_2d(split);
 			}
 		}

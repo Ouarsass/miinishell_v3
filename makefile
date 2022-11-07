@@ -6,7 +6,7 @@
 #    By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/01 20:12:40 by mouarsas          #+#    #+#              #
-#    Updated: 2022/11/05 20:50:42 by mouarsas         ###   ########.fr        #
+#    Updated: 2022/11/07 19:14:58 by mouarsas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,7 @@ SRCS = 	minishell.c\
 		builtins/export.c\
 		builtins/pwd.c\
 		builtins/unset.c\
+		help_to_norme.c\
 
 
 CFLAGS := -Wall -Wextra -Werror

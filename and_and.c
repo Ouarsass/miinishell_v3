@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 22:18:14 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/05 22:39:37 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/07 19:11:04 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,7 @@ t_list	*or_or(t_list *list, char *str, t_norme3 *norme)
 			if (list == NULL)
 				return (NULL);
 			if (norme->status != 0)
-			{
-				norme->status2 = norme->status;
-				free_2d(new);
-				return (list);
-			}
+				return (help_mini_or_or(&norme[0], list, new));
 		}
 		i++;
 	}

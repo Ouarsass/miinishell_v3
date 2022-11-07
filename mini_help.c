@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 22:58:23 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/05 22:57:56 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/07 20:44:35 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ t_list	*ft_trait1(t_norme2 *norme, t_list *list, t_pi *pi,
 		ft_strchr(norme->str, '<') != NULL)
 		h = redirect(&pi[0], &(norme->str), &(norme->status));
 	newargv = mini_filter_h(&(norme->str), my_magic(list));
+	status.status = norme->status;
 	if (newargv != NULL)
 	{
 		status.pi = pi[0];
-		status.status = norme->status;
 		if (newargv[0] && ft_strcmp(newargv[0], "exit") == 0 && pi->new == NULL)
 		{
 			if (newargv[1] == NULL)
@@ -56,9 +56,7 @@ t_list	*ft_trait1(t_norme2 *norme, t_list *list, t_pi *pi,
 		if (h == 1 && ft_strcmp(newargv[0], "exit") != 0)
 			list = ft_trait(newargv[0], list, newargv, &status);
 	}
-	norme->status = status.status;
-	free(norme->str);
-	return (list);
+	return (last_help_for_ft_trait0(list, &norme[0], status));
 }
 
 int	trait_the_pi(char *str, t_pi *pi, int p0)

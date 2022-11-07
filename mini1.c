@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 21:57:08 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/05 22:48:45 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/07 20:32:46 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,8 @@ t_list	*ft_trait0(t_list *list, char *line, t_norme3 *norme3, int i)
 	t_pi		*pi;
 	t_norme2	norme;
 
-	norme3->status = complete_the_pipe(&line);
-	if (norme3->status != 1)
-		return (list);
-	str = split_command(line, '|');
-	norme3->status = check_redirections(str);
-	if (norme3->status == 0)
+	list = help_to_norme_ft_trait0(list, line, &norme3[0], &str);
+	if (str == NULL)
 		return (list);
 	while (str[++i])
 	{

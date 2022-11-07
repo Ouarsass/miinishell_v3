@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 20:12:12 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/06 20:20:44 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/07 20:45:41 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ typedef struct s_cd
 	int		i;
 	char	*old_cur;
 	int		*st;
+	char	path[255];
 }				t_cd;
 
 typedef struct s_norme
@@ -142,6 +143,8 @@ t_list			*cd_norm(t_list *list, t_pi pi, int *st);
 char			*env_value(char *s, t_list *list);
 t_list			*change_dir(char **av, t_cd ci, t_list *list, t_pi pi);
 void			change_dir_norm(t_cd ci, t_list *list, t_pi pi);
+t_list			*help_hamza_mustafa_cd(t_pi pi, char *old_cur, \
+				int *st, t_list *list);
 
 t_list			*and_and(t_list *list, char *str, t_norme3 norme);
 void			anathor_help_for_mini1(char *str, t_norme3 *norme3,
@@ -258,5 +261,14 @@ t_list			*ft_myshell(char **argv, int com, t_list *list,
 					t_status *status);
 t_env_list		*create_env(char **environ);
 t_env_list		*create_next(char *environ);
+t_list			*help_mini_or_or(t_norme3 *norme, t_list *list, char **new);
+int				help_to_redirect_with_fd(char *str, int *i, int j);
+void			ft_mini_help_ft_trait(char **argv, t_list *list, \
+				t_status *status, char *commande);
+void			ok_x_path(char **argv, t_list *list, t_pi pi, int *status);
+t_list			*help_to_norme_ft_trait0(t_list *list, char *line, \
+				t_norme3 *norme3, char ***str);
+t_list			*last_help_for_ft_trait0(t_list *list, t_norme2 *norme, \
+				t_status status);
 
 #endif

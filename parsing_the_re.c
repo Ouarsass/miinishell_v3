@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 22:50:29 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/05 23:23:32 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/07 19:36:02 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,9 @@ int	type_one(char *file, int ***pipe, int out)
 	if (b == -1)
 		return (print_p_d(file, pipe[0][2]));
 	if (out == -1 || out == 1)
-	{
 		if (pipe[0][1][1] != 1 && pipe[0][1][1] != -1)
 			close(pipe[0][1][1]);
 		pipe[0][1][1] = b;
-	}
 	if (out == 2)
 	{
 		if (pipe[0][2][1] != 2 && pipe[0][2][1] != -1)
@@ -106,11 +104,9 @@ int	type_three(char *file, int ***pipe, int out)
 	if (b == -1)
 		return (print_p_d(file, pipe[0][2]));
 	if (out == -1 || out == 0)
-	{
 		if (pipe[0][0][1] != 0 && pipe[0][0][1] != -1)
 			close(pipe[0][0][1]);
 		pipe[0][0][1] = b;
-	}
 	if (out == 2)
 	{
 		if (pipe[0][2][1] != 2 && pipe[0][2][1] != -1)

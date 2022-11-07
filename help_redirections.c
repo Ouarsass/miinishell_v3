@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 22:31:32 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/05 22:44:12 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/07 19:20:18 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,7 @@ int	redirect_with_fd(char *line, int *i)
 			return (-1);
 		}
 	}
-	i[0] = j;
-	j = atoi(str);
-	free(str);
-	return (j);
+	return (help_to_redirect_with_fd(str, &i[0], j));
 }
 
 int	print_p_d(char *file, int *pipe)

@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 21:59:14 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/05 22:53:43 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/07 19:29:56 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,12 +108,7 @@ t_list	*ft_trait(char *commande, t_list *list, char **argv,
 		list = ft_myshell(argv, 7, list, &status[0]);
 	else if (commande[0] && \
 		search_commande(list, commande, argv, status->pi) == 0)
-	{
-		if (ft_strchr(argv[0], '/'))
-			ok_x_path(argv, list, status->pi, &(status->status));
-		else
-			another_mini_help_for_mini2(&status[0], commande);
-	}
+		ft_mini_help_ft_trait(argv, list, &status[0], commande);
 	ft_fresh(argv);
 	return (list);
 }

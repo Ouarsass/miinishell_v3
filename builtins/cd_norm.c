@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 20:29:46 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/06 20:50:11 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/07 19:43:01 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,12 @@ char	*get_key_env(char *str)
 		i++;
 	}
 	return (NULL);
+}
+
+t_list	*help_hamza_mustafa_cd(t_pi pi, char *old_cur, int *st, t_list *list)
+{
+	ft_putstr_fd("minishell: cd: HOME not set", pi.pipe[2][1]);
+	st[0] = 0;
+	free(old_cur);
+	return (list);
 }

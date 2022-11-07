@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 23:33:27 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/06 20:34:42 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/07 19:42:44 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,24 +73,18 @@ t_list	*change_dir(char **av, t_cd ci, t_list *list, t_pi pi)
 
 t_list	*ft_cd(char **av, t_list *list, t_pi pi, int *st)
 {
-	char	path[255];
 	char	*home;
 	char	*old_cur;
 	t_cd	ci;
 
 	ci.st = &st[0];
-	getcwd(path, 255);
-	old_cur = ft_strdup(path);
+	getcwd(ci.path, 255);
+	old_cur = ft_strdup(ci.path);
 	if (!av[1])
 	{
 		home = env_value("HOME", list);
 		if (!home)
-		{
-			ft_putstr_fd("minishell: cd: HOME not set", pi.pipe[2][1]);
-			st[0] = 0;
-			free(old_cur);
-			return (list);
-		}
+			return (help_hamza_mustafa_cd(pi, old_cur, &st[0], list));
 		free(home);
 		list = cd_norm(list, pi, st);
 		free(old_cur);
