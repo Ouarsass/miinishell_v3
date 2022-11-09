@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 22:01:29 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/09 01:57:15 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/09 19:49:26 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_list	*ft_myshell(char **argv, int com, t_list *list, t_status *status)
 	int	len;
 	int	st;
 
-	st = 1;
+	st = 0;
 	len = 0;
 	while (argv[len])
 		len++;

@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 21:59:14 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/09 02:32:02 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/09 20:02:57 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ int	ok_x_pathv2(t_list *list, DIR *dir, char **env, t_norme norme)
 
 	pid = 0;
 	dir = opendir(norme.env[0]);
-	if (access(norme.env[0], X_OK) == 0 && \
-		dir == NULL)
+	if (access(norme.env[0], X_OK) == 0 && dir == NULL)
 	{
 		env = my_magic(list);
 		pid = fork();
 		if (pid == 0)
 		{
+			signal(SIGQUIT, SIG_DFL);
 			help_the_systeme(norme);
 			execve(norme.env[0], norme.env, env);
 		}
@@ -63,15 +63,6 @@ int	ok_x_pathv2(t_list *list, DIR *dir, char **env, t_norme norme)
 	}
 	return (1);
 }
-
-// void	handl(int c)
-// {
-// 	if (c == 3)
-// 		ft_putstr_fd("QUIT", 2);
-// 	write(1, "\n", 1);
-// 	g_isexecuting.status = 128 + WTERMSIG(c);
-// 	exit(1);
-// }
 
 void	ok_x_path(char **argv, t_list *list, t_pi pi, int *status)
 {
@@ -96,9 +87,7 @@ void	ok_x_path(char **argv, t_list *list, t_pi pi, int *status)
 	}
 }
 
-
-t_list	*ft_trait(char *commande, t_list *list, char **argv,
-				t_status *status)
+t_list	*ft_trait(char *commande, t_list *list, char **argv, t_status *status)
 {
 	if (!commande)
 		return (list);

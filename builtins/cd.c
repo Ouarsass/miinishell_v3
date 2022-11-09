@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 23:33:27 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/07 19:42:44 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/09 18:00:14 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ t_list	*change_dir(char **av, t_cd ci, t_list *list, t_pi pi)
 		ft_putstr_fd("minishell: cd: ", pi.pipe[2][1]);
 		ft_putstr_fd(av[1], pi.pipe[2][1]);
 		ft_putstr_fd(": No such file or directory\n", pi.pipe[2][1]);
-		ci.st[0] = 0;
+		ci.st[0] = 1;
 	}
 	else
 		change_dir_norm(ci, list, pi);

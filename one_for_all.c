@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 22:46:02 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/05 23:19:35 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:55:30 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	another_mini_help_for_mini2(t_status *status, char *commande)
 {
 	ft_putstr_fd("minishell: command not found: ", status->pi.pipe[2][1]);
 	ft_putendl_fd(commande, status->pi.pipe[2][1]);
-	status->status = 0;
+	status->status = 127;
 }
 
 int	check_if_and_and(char **str, int i)

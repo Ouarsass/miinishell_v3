@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 21:51:01 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/09 00:14:14 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/09 19:47:36 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,7 @@ void	handle(int sig)
 void	ft_signal(void)
 {
 	if (signal(SIGINT, handle) == SIG_ERR || \
-	signal(SIGQUIT, SIG_IGN) == SIG_ERR || \
-	signal(SIGTSTP, SIG_IGN) == SIG_ERR)
+	signal(SIGQUIT, handle) == SIG_ERR)
 	{
 		write(2, "sig error\n", 10);
 		exit (1);

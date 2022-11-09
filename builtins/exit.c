@@ -6,22 +6,11 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 23:34:02 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/09 01:58:46 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/09 18:14:25 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-
-int	exit_check(char *s)
-{
-	int	i;
-
-	i = -1;
-	while (s[++i])
-		if (!(s[i] >= 48 && s[i] <= 57))
-			exit(255);
-	return (ft_atoi(s));
-}
 
 int	is_number(char *str)
 {
@@ -54,7 +43,7 @@ t_list	*free_to_exit(char **av, t_list *list, t_pi *pi, t_norme2 *norme)
 t_list	*free_to_not_exit(t_norme2 *norme, char **av, t_list *list)
 {
 	free(norme->str);
-	norme->status = 0;
+	norme->status = 1;
 	ft_fresh(av);
 	return (list);
 }

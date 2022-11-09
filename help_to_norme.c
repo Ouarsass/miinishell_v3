@@ -6,15 +6,14 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 19:14:01 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/08 19:24:51 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/09 19:57:02 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-t_list	*help_mini_or_or(t_norme3 *norme, t_list *list, char **new)
+t_list	*help_mini_or_or(t_list *list, char **new)
 {
-	norme->status2 = norme->status;
 	free_2d(new);
 	return (list);
 }

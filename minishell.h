@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 20:12:12 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/09 02:19:48 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/09 20:03:52 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ typedef struct s_norme3
 	int		status;
 	char	**andand;
 	char	**oror;
-	int		status2;
 }				t_norme3;
 
 typedef struct s_env_list
@@ -116,8 +115,8 @@ typedef struct s_some_norme
 
 typedef struct s_global
 {
-	int		status;
-	int		old_status;
+	int	status;
+	int	old_status;
 }				t_global;
 
 t_global	g_isexecuting;
@@ -130,7 +129,6 @@ int				ft_get_sig(int sig);
 int				ft_newline(char *s);
 void			environment(t_list *env);
 void			ft_env(char **av, t_list *list, t_pi pi);
-int				exit_check(char *s);
 void			free_and_exit(int status);
 t_list			*ft_my_exit(char **av, t_list *list, t_pi *pi, t_norme2 *norme);
 t_list			*ft_cd(char **av, t_list *list, t_pi pi, int *st);
@@ -145,6 +143,7 @@ t_list			*change_dir(char **av, t_cd ci, t_list *list, t_pi pi);
 void			change_dir_norm(t_cd ci, t_list *list, t_pi pi);
 t_list			*help_hamza_mustafa_cd(t_pi pi, char *old_cur, \
 				int *st, t_list *list);
+void			handle(int sig);
 
 t_list			*and_and(t_list *list, char *str, t_norme3 norme);
 void			anathor_help_for_mini1(char *str, t_norme3 *norme3,
@@ -261,7 +260,7 @@ t_list			*ft_myshell(char **argv, int com, t_list *list,
 					t_status *status);
 t_env_list		*create_env(char **environ);
 t_env_list		*create_next(char *environ);
-t_list			*help_mini_or_or(t_norme3 *norme, t_list *list, char **new);
+t_list			*help_mini_or_or(t_list *list, char **new);
 int				help_to_redirect_with_fd(char *str, int *i, int j);
 void			ft_mini_help_ft_trait(char **argv, t_list *list, \
 				t_status *status, char *commande);
