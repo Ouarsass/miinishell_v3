@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 19:14:01 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/07 20:37:51 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/08 19:24:51 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ t_list	*help_to_norme_ft_trait0(t_list *list, char *line, \
 	norme3->status = complete_the_pipe(&line);
 	if (norme3->status != 1)
 	{
-		ft_putendl("first");
 		str[0] = NULL;
 		return (list);
 	}
@@ -50,7 +49,6 @@ t_list	*help_to_norme_ft_trait0(t_list *list, char *line, \
 	norme3->status = check_redirections(str[0]);
 	if (norme3->status == 0)
 	{
-		ft_putendl("second");
 		str[0] = NULL;
 		return (list);
 	}

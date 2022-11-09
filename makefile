@@ -6,13 +6,11 @@
 #    By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/01 20:12:40 by mouarsas          #+#    #+#              #
-#    Updated: 2022/11/07 19:14:58 by mouarsas         ###   ########.fr        #
+#    Updated: 2022/11/08 16:54:58 by mouarsas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
-
-#CFLAGS = -Wall -Wextra -Werror
 
 LIB = libft/libft.a
 
@@ -57,10 +55,8 @@ SRCS = 	minishell.c\
 CFLAGS := -Wall -Wextra -Werror
 LFLAGS="-L/Users/mouarsas/.brew/opt/readline/lib"
 IFLAGS="-I/Users/mouarsas/.brew/opt/readline/include"
-# LFLAGS := -L/goinfre/mouarsas/.brew/opt/readline/lib
-# IFLAGS := -I/goinfre/mouarsas/.brew/opt/readline/include
 
-CC = gcc
+CC = cc
 OBJS :=$(SRCS:.c=.o)
 
 all: $(NAME)

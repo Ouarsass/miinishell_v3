@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 22:28:38 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/02 22:43:07 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/09 01:51:01 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	free_of_trait0(t_pi *pi, int i, char **str, int *status)
 	wait_null(pi->pipe[0][1], i, &status[0]);
 	free_my_pi(pi);
 	free_2d(str);
+	g_isexecuting.old_status = status[0];
 }
 
 void	free_of_trait0v2(t_pi *pi, int i)

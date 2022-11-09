@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 20:12:12 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/07 20:45:41 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/09 02:19:48 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@
 # include <sys/stat.h>
 # include <unistd.h>
 # define BUFF_SIZE 1024
-
-int	g_isexecuting;
 
 typedef struct s_list
 {
@@ -118,18 +116,20 @@ typedef struct s_some_norme
 
 typedef struct s_global
 {
-	t_list	*env;
 	int		status;
+	int		old_status;
 }				t_global;
+
+t_global	g_isexecuting;
 
 /////////////////////////////////////////////////
 
 int				ft_pwd(t_pi pi);
-int				ft_echo(char **av, t_pi pi);
+int				ft_echo(char **av, t_pi pi, int i);
 int				ft_get_sig(int sig);
 int				ft_newline(char *s);
 void			environment(t_list *env);
-void			ft_env(t_list *list, t_pi pi);
+void			ft_env(char **av, t_list *list, t_pi pi);
 int				exit_check(char *s);
 void			free_and_exit(int status);
 t_list			*ft_my_exit(char **av, t_list *list, t_pi *pi, t_norme2 *norme);

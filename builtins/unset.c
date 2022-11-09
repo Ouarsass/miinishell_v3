@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 23:34:34 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/06 20:22:51 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/08 19:48:43 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ t_list	*ft_unset_env(t_list *list, char *str)
 	{
 		tmp = list->first;
 		list = tmp->next;
+		free(tmp->str);
 		free(tmp);
 		free(env);
 		return (list);

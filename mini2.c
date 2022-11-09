@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 21:59:14 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/07 19:29:56 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/09 02:32:02 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,15 @@ int	ok_x_pathv2(t_list *list, DIR *dir, char **env, t_norme norme)
 	return (1);
 }
 
+// void	handl(int c)
+// {
+// 	if (c == 3)
+// 		ft_putstr_fd("QUIT", 2);
+// 	write(1, "\n", 1);
+// 	g_isexecuting.status = 128 + WTERMSIG(c);
+// 	exit(1);
+// }
+
 void	ok_x_path(char **argv, t_list *list, t_pi pi, int *status)
 {
 	struct stat	sb;
@@ -86,6 +95,7 @@ void	ok_x_path(char **argv, t_list *list, t_pi pi, int *status)
 		status[0] = 0;
 	}
 }
+
 
 t_list	*ft_trait(char *commande, t_list *list, char **argv,
 				t_status *status)

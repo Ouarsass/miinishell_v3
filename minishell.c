@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 21:51:01 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/05 23:16:23 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/09 00:14:14 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_list	*read_trait_commande(char *commande, t_list *list, char **argv)
 	commande = readline("Minishell>$ ");
 	if (commande != NULL)
 	{
-		g_isexecuting = 1;
+		g_isexecuting.status = 1;
 		commande = ft_filter_quote(commande);
 		if (commande && (search_no_espace(commande) == 0 || \
 			check_if_and_and(&commande, 0) == 0))
@@ -67,7 +67,7 @@ t_list	*stock_list(char **env)
 
 void	handle(int sig)
 {
-	if (sig == SIGINT && !g_isexecuting)
+	if (sig == SIGINT && !g_isexecuting.status)
 	{
 		write(1, "\n", 1);
 		rl_replace_line("", 0);
@@ -102,7 +102,7 @@ int	main(int argc, char **argv, char **env)
 	ft_signal();
 	while (1)
 	{
-		g_isexecuting = 0;
+		g_isexecuting.status = 0;
 		list = read_trait_commande(commande, list, argv);
 		if (list)
 			continue ;
