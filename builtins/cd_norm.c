@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 20:29:46 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/09 18:18:11 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/09 21:31:46 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,24 @@ t_list	*help_hamza_mustafa_cd(t_pi pi, char *old_cur, int *st, t_list *list)
 	st[0] = 1;
 	free(old_cur);
 	return (list);
+}
+
+char	*boyka_help_us_echo(int len, char *str, int i)
+{
+	char	*join;
+	char	*tmp;
+	char	*temp;
+	char	*boyka;
+
+	temp = ft_substr(str, 0, i);
+	boyka = ft_itoa(g_isexecuting.old_status);
+	tmp = ft_strjoin(temp, boyka);
+	free(temp);
+	free(boyka);
+	boyka = ft_substr(str, i + 2, len - (i + 2));
+	join = ft_strjoin(tmp, boyka);
+	free(boyka);
+	free(tmp);
+	free(str);
+	return (join);
 }

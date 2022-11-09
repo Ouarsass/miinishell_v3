@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 20:12:12 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/09 20:03:52 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/09 21:32:05 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,7 @@ void			change_dir_norm(t_cd ci, t_list *list, t_pi pi);
 t_list			*help_hamza_mustafa_cd(t_pi pi, char *old_cur, \
 				int *st, t_list *list);
 void			handle(int sig);
+char			*boyka_help_us_echo(int len, char *str, int i);
 
 t_list			*and_and(t_list *list, char *str, t_norme3 norme);
 void			anathor_help_for_mini1(char *str, t_norme3 *norme3,

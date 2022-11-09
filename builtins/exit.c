@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 23:34:02 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/09 18:14:25 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/09 21:11:20 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,6 @@ t_list	*free_to_not_exit(t_norme2 *norme, char **av, t_list *list)
 
 t_list	*ft_my_exit(char **av, t_list *list, t_pi *pi, t_norme2 *norme)
 {
-	int	i;
-
-	i = 1;
 	if (av[1])
 	{
 		if (is_number(av[1]) == 1)

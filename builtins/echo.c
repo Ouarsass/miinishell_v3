@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 23:33:36 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/09 01:57:54 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/11/09 21:30:35 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,8 @@ int	check_n(char *str)
 char	*switch_to_old_status(char *str)
 {
 	int		i;
-	char	*join;
-	char	*tmp;
 	int		len;
 
-	join = NULL;
 	i = 0;
 	len = ft_strlen(str);
 	while (str[i])
@@ -63,14 +60,7 @@ char	*switch_to_old_status(char *str)
 		if (str[i] == '$')
 		{
 			if (str[i + 1] == '?')
-			{
-				tmp = ft_strjoin(ft_substr(str, 0, i), \
-					ft_itoa(g_isexecuting.old_status));
-				join = ft_strjoin(tmp, ft_substr(str, i + 2, len - (i + 2)));
-				free(tmp);
-				free(str);
-				str = join;
-			}
+				str = boyka_help_us_echo(len, str, i);
 		}
 		i++;
 	}
